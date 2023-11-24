@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>익명 토론 게시판</title>
+</head>
+<body>
+    <h1>익명 토론 게시판</h1>
+
+    <!-- 주제 등록 폼 -->
+    <form id="topicForm">
+        <label for="topic">주제 등록 (관리자 전용): </label>
+        <input type="text" id="topic" name="topic" required>
+        <button type="button" onclick="submitTopic()">등록</button>
+    </form>
+
+    <!-- 뎃글 작성 폼 -->
+    <form id="commentForm">
+        <label for="comment">뎃글 작성: </label>
+        <input type="text" id="comment" name="comment" required>
+        <button type="button" onclick="submitComment()">등록</button>
+    </form>
+
+    <!-- 주제 및 뎃글 표시 영역 -->
+    <div id="discussion">
+        <!-- 주제 및 뎃글은 이곳에 동적으로 표시될 것입니다. -->
+    </div>
+
+    <!-- 스크립트 파일 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
