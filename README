@@ -1,3 +1,10 @@
 1. 프로토타입 디자인에 맞춰 리메이크 준비
 https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&node-id=25-1393&t=bvWmsVfYQWxovyi7-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=3%3A589
 
+2. 작업순서
+  a. 다이어그램 및 관계도 작성
+  b. 파일 디렉토리 명세화
+  c. 서버 코드 (express) 및 메인 문서(main.html) 구축
+  d. css 및 버그리포트
+
+3. 번들화 테스트 및 호스팅 준비(git)
