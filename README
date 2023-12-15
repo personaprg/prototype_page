@@ -16,3 +16,5 @@ https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&nod
   d. css 및 버그리포트
 
 3. 번들화 테스트 및 호스팅 준비(git)
+
+4. main폴더의 main.html문서를 server.js(epxress)로 서빙 테스트 완료
