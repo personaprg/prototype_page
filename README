@@ -4,6 +4,14 @@ https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&nod
 2. 작업순서
   a. 다이어그램 및 관계도 작성
   b. 파일 디렉토리 명세화
+    프로젝트 폴더
+    ├── main
+    │   └── main.html
+    └── data
+        ├── bgm
+        ├── img
+        └── text
+
   c. 서버 코드 (express) 및 메인 문서(main.html) 구축
   d. css 및 버그리포트
 
