@@ -4,6 +4,7 @@ https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&nod
 2. 작업순서
   a. 다이어그램 및 관계도 작성
   b. 파일 디렉토리 명세화
+  --0.0.1-- 디렉토리 구축
     프로젝트 폴더
     ├── main
     │   └── main.html
@@ -11,6 +12,55 @@ https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&nod
         ├── bgm
         ├── img
         └── text
+
+
+
+  --0.0.2-- 디렉토리 구조 변경
+
+프로젝트 루트:
+프로젝트 루트:
+  - src: 원본 코드 및 리소스
+    - controllers: Express 컨트롤러
+    - models: 데이터 모델
+    - routes: Express 라우팅
+    - views: 서버 측 뷰 템플릿 (EJS, Pug 등)
+  - public: 클라이언트 측 정적 파일
+    - css: 클라이언트 측 스타일 파일
+    - js: 클라이언트 측 자바스크립트 파일
+    - main.html: 클라이언트 측 메인 HTML 파일
+  - tests: 테스트 코드
+  - config: 설정 파일 및 환경 변수
+  - node_modules: npm 패키지
+  - server.js: Express 서버 엔트리 포인트
+  - package.json: 프로젝트 의존성 및 스크립트 정의
+  - webpack.config.js: 프론트엔드 빌드 설정
+
+
+
+
+
+
+  [디렉토리 설명]
+  test 폴더 내용
+- database.js : 마리아 DB 연결 관련 코드
+- css.js : 새로운 스타일 적용을 시험하기 위한 파일 
+- module.js : 새로운  기능 적용을 시험하기 위한 파일
+
+data 폴더 내용
+- image폴더 : express 방식으로 전달 받을 이미지파일을 모아둔 폴더 
+- music 폴더 : express 방식으로 전달받을 텍스트 파일을 모아둔 폴더
+- data  : 사용자 로그와 각종 데이터를모아둔 폴더 
+ 
+main 폴더내용
+- main.html  :  문서를 구축할 기본 main.html 
+- module 폴더: main.html의 script 부분을 모듈화 하기 위한 폴더(안에 main.js가 있음 
+- main.css : main.html의 스타일을 불러와 편집 할 수 있는 css 파일
+
+
+
+
+
+
 
   c. 서버 코드 (express) 및 메인 문서(main.html) 구축
   d. css 및 버그리포트

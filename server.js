@@ -2,17 +2,17 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
-// main 폴더의 main.html 서빙코드
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Define routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'main', 'main.html'));
+    res.sendFile(path.join(__dirname, 'public/main.html'));
 });
 
-// data 폴더의 정적 파일 서빙코드
-app.use('/data', express.static(path.join(__dirname, 'data')));
-
-// 서버 시작
+// Start the server
 app.listen(port, () => {
-  console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
+    console.log(`Server is running at http://localhost:${port}`);
 });
