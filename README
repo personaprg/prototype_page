@@ -13,30 +13,24 @@ https://www.figma.com/proto/F6vQIrUsK1VNmE1npufOdc/PrototypePage?type=design&nod
         ├── img
         └── text
 
-
-
   --0.0.2-- 디렉토리 구조 변경
-
 프로젝트 루트:
-프로젝트 루트:
-  - src: 원본 코드 및 리소스
-    - controllers: Express 컨트롤러
-    - models: 데이터 모델
-    - routes: Express 라우팅
-    - views: 서버 측 뷰 템플릿 (EJS, Pug 등)
-  - public: 클라이언트 측 정적 파일
-    - css: 클라이언트 측 스타일 파일
-    - js: 클라이언트 측 자바스크립트 파일
-    - main.html: 클라이언트 측 메인 HTML 파일
-  - tests: 테스트 코드
-  - config: 설정 파일 및 환경 변수
-  - node_modules: npm 패키지
-  - server.js: Express 서버 엔트리 포인트
-  - package.json: 프로젝트 의존성 및 스크립트 정의
-  - webpack.config.js: 프론트엔드 빌드 설정
-
-
-
+myProject
+├── src
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   └── views
+├── public
+│   ├── css
+│   ├── js
+│   └── main.html
+├── tests
+├── config
+├── node_modules
+├── server.js
+├── package.json
+└── webpack.config.js
 
 
 
@@ -59,9 +53,6 @@ main 폴더내용
 
 
 
-
-
-
   c. 서버 코드 (express) 및 메인 문서(main.html) 구축
   d. css 및 버그리포트
 
@@ -72,3 +63,16 @@ main 폴더내용
 - data 폴더의 정적 파일 서빙코드  테스트 완료
 
 5. git id "Garry"로 통일 작업 시작
+
+6. 지도 api 이슈
+issue 1
+
+
+issue 3
+구글 / 네이버 / 카카오에서
+무료 서비스 이용이 가능한 map api는 네이버이고 1억건 이상이 되면 0.1원식 비용이 발생한다.
+뿐만 아니라 src에서 사이트의 url 주소를 가져온 방식이기 때문에 페이지에서 id값이 유출되는 문제가 있다.
+해당 부분을 스크립트로 처리하여 gtiignore로 가리는 임시 방법이 있지만, 다른 보안문제 때문에
+api 사용은 나중에 고려하고 prototype버전에선 이미지 클릭으로 대체하고
+이 버전에선 지역의 정확한 정보고 아닌 지도의 정확한 위치에 따른 클릭 이벤트이기 때문에
+지도의 지역별 클릭을 구현 목표로 설정하여 진행
