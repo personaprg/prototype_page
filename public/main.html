@@ -3,26 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>익명 토론 게시판</title>
 </head>
 <body>
-    <h1>0.0.2 버전 업데이트 시작</h1>
+    <h1>익명 토론 게시판</h1>
 
-    <img id="mapImage" src="../public/image/map.jpg" alt="지도">
+    <!-- 로그인 폼 -->
+    <form id="loginForm">
+        <label for="username">아이디: </label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">비밀번호: </label>
+        <input type="password" id="password" name="password" required>
+        <button type="button" onclick="login()">로그인</button>
+    </form>
 
+    <!-- 주제 등록 폼 -->
+    <form id="topicForm" style="display: none;">
+        <label for="topic">주제 등록 (관리자 전용): </label>
+        <input type="text" id="topic" name="topic" required>
+        <button type="button" onclick="submitTopic()">등록</button>
+    </form>
 
+    <!-- 뎃글 작성 폼 -->
+    <form id="commentForm" style="display: none;">
+        <label for="comment">뎃글 작성: </label>
+        <input type="text" id="comment" name="comment" required>
+        <button type="button" onclick="submitComment()">등록</button>
+    </form>
 
+    <!-- 주제 및 뎃글 표시 영역 -->
+    <div id="discussion">
+        <!-- 주제 및 뎃글은 이곳에 동적으로 표시될 것입니다. -->
+    </div>
 
-<!-- Include script modules -->
-<script type="module" src="js/module/main.js"></script>
-<script type="module" src="js/module/module.js"></script>
+    <!-- 스크립트 파일 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let isLoggedIn = false;
 
-<!-- Link database.js script -->
-<script type="module" src="js/test/database.js"></script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-<!-- Test CSS script -->
-<script type="module" src="js/test/css.js"></script>
+            // 예시: 실제로는 서버로부터 인증을 수행해야 합니다.
+            if (username === 'admin' && password === '123') {
+                isLoggedIn = true;
+                alert('로그인 성공!');
+                showAdminControls();
+            } else {
+                alert('로그인 실패. 아이디와 비밀번호를 확인하세요.');
+            }
+        }
 
+        function showAdminControls() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('topicForm').style.display = 'block';
+            document.getElementById('commentForm').style.display = 'block';
+        }
+
+        function submitTopic() {
+            if (!isLoggedIn) {
+                alert('관리자 권한이 필요합니다.');
+                return;
+            }
+            // 주제 등록 로직 추가
+            alert('주제가 등록되었습니다.');
+        }
+
+        function submitComment() {
+            if (!isLoggedIn) {
+                alert('관리자 권한이 필요합니다.');
+                return;
+            }
+            // 뎃글 등록 로직 추가
+            alert('뎃글이 등록되었습니다.');
+        }
+    </script>
 </body>
 </html>
