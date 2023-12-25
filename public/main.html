@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
     </form>
 
     <!-- 뎃글 작성 폼 -->
-    <form id="commentForm" style="display: none;">
+    <form id="commentForm">
         <label for="comment">뎃글 작성: </label>
         <input type="text" id="comment" name="comment" required>
         <button type="button" onclick="submitComment()">등록</button>
@@ -72,11 +72,14 @@
         }
 
         function submitComment() {
-            if (!isLoggedIn) {
-                alert('관리자 권한이 필요합니다.');
-                return;
-            }
+            const commentText = document.getElementById('comment').value;
+
             // 뎃글 등록 로직 추가
+            const commentContainer = document.getElementById('discussion');
+            const commentElement = document.createElement('div');
+            commentElement.textContent = commentText;
+            commentContainer.appendChild(commentElement);
+
             alert('뎃글이 등록되었습니다.');
         }
     </script>
