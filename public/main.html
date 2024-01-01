@@ -62,6 +62,7 @@
             document.getElementById('commentForm').style.display = 'block';
         }
 
+        //사용자가 로그인하지 않은 경우 (즉, !isLoggedIn이 true인 경우)에 경고창을 띄우고 함수를 종료
         function submitTopic() {
             if (!isLoggedIn) {
                 alert('관리자 권한이 필요합니다.');
