@@ -33,9 +33,11 @@
             });
 
             // location.json에서 데이터 불러와서 버튼 동적 생성
-            $.getJSON('location.json', function (data) {
+            $.getJSON('/getLocations', function (data) {
                 const locationButtons = data.locations.map(function (location) {
-                    return $('<button>').text(location);
+                    return $('<button>').text(location).on('click', function () {
+                        window.location.href = '/location/' + location.toLowerCase();
+                    });
                 });
                 buttonContainer.append(locationButtons);
             });
