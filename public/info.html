@@ -1,0 +1,93 @@
+<!-- public/info.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[클릭한 지역명]의 정보</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: right;
+            padding: 10px;
+        }
+
+        main {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #mapContainer {
+            width: 80%;
+            /* 적절한 가로 크기 조정 */
+            height: 400px;
+            /* 적절한 세로 크기 조정 */
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button id="loginButton">로그인</button>
+    </header>
+
+    <main>
+        <h1>[클릭한 지역명]의 정보</h1>
+
+        <div id="mapContainer">
+            <!-- 여기에 지도 이미지 등을 표시하는 코드를 추가할 수 있습니다. -->
+            <!-- 예: <img src="map_image.jpg" alt="지도 이미지"> -->
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>페이지 생성 순번</th>
+                    <th>제목</th>
+                    <th>기간</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 임시 데이터 예시 -->
+                <tr>
+                    <td>1</td>
+                    <td>임시 제목 1</td>
+                    <td>2024.01.01 - 2024.01.15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>임시 제목 2</td>
+                    <td>2024.02.01 - 2024.02.28</td>
+                </tr>
+                <!-- 클릭한 지역에 따른 실제 데이터를 여기에 동적으로 추가할 수 있습니다. -->
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>
