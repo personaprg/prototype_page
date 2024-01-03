@@ -6,6 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Project</title>
+    <style>
+        #buttonContainer {
+            position: relative;
+            width: 600px; /* 적절한 가로 크기 조정 */
+            height: 400px; /* 적절한 세로 크기 조정 */
+            border: 1px solid #ccc;
+        }
+        .locationButton {
+            position: absolute;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +29,7 @@
     </header>
 
     <main>
-        <h2>기본 버튼 목록</h2>
+        <h2>지도상 도시 버튼</h2>
         <div id="buttonContainer"></div>
     </main>
 
@@ -23,24 +39,21 @@
             // location.json에서 데이터 불러와서 버튼 동적 생성
             $.getJSON('/getLocations', function (data) {
                 const buttonContainer = $('#buttonContainer');
-                
-                // 기본 버튼 생성
-                const defaultButtons = [
-                    
-                ];
 
-                defaultButtons.forEach(function (buttonText) {
-                    const button = $('<button>').text(buttonText);
+                data.locations.forEach(function (location) {
+                    // 각 지역에 따른 가상 좌표 설정 (예시)
+                    let coordinates = { x: Math.random() * 600, y: Math.random() * 400 };
+
+                    const button = $('<button>')
+                        .text(location)
+                        .addClass('locationButton')
+                        .css({ left: coordinates.x, top: coordinates.y })
+                        .on('click', function () {
+                            window.location.href = '/location/' + location.toLowerCase();
+                        });
+
                     buttonContainer.append(button);
                 });
-
-                // JSON 데이터에서 버튼 생성
-                const locationButtons = data.locations.map(function (location) {
-                    return $('<button>').text(location).on('click', function () {
-                        window.location.href = '/location/' + location.toLowerCase();
-                    });
-                });
-                buttonContainer.append(locationButtons);
             });
         });
     </script>
