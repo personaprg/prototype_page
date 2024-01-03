@@ -1,0 +1,45 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project</title>
+</head>
+<body>
+    <header>
+        <button id="loginButton">로그인</button>
+    </header>
+
+    <main>
+        <h2>기본 버튼 목록</h2>
+        <div id="buttonContainer"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 기본 버튼 생성
+            const defaultButtons = [
+                'Button 1', 'Button 2', 'Button 3', 'Button 4', 'Button 5',
+                'Button 6', 'Button 7', 'Button 8', 'Button 9', 'Button 10'
+            ];
+
+            const buttonContainer = $('#buttonContainer');
+            defaultButtons.forEach(function (buttonText) {
+                const button = $('<button>').text(buttonText);
+                buttonContainer.append(button);
+            });
+
+            // location.json에서 데이터 불러와서 버튼 동적 생성
+            $.getJSON('location.json', function (data) {
+                const locationButtons = data.locations.map(function (location) {
+                    return $('<button>').text(location);
+                });
+                buttonContainer.append(locationButtons);
+            });
+        });
+    </script>
+</body>
+</html>
