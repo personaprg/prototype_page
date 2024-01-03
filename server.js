@@ -1,18 +1,25 @@
+// server.js
 const express = require('express');
-const path = require('path');
+const bodyParser = require('body-parser');
+const fs = require('fs');  // 이 부분을 확인하세요.
 
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
+app.use(bodyParser.json());
 
-// html 파일 서빙
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/main.html'));
+app.post('/submitData', (req, res) => {
+    const inputData = req.body.data;
+
+    // 데이터를 JSON 파일에 저장
+    const data = { message: `입력한 데이터: ${inputData}` };
+    fs.writeFileSync('data.json', JSON.stringify(data));
+
+    res.json(data);
 });
 
-// json 데이터 처리
+app.use(express.static('public'));
+
 app.get('/getLocations', (req, res) => {
     try {
         const locationData = fs.readFileSync('public/location.json', 'utf8');
@@ -24,7 +31,6 @@ app.get('/getLocations', (req, res) => {
     }
 });
 
-// Start the server
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+    console.log(`서버가 http://localhost:${port} 에서 실행 중입니다.`);
 });

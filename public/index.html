@@ -20,20 +20,21 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function () {
-            // 기본 버튼 생성
-            const defaultButtons = [
-                'Button 1', 'Button 2', 'Button 3', 'Button 4', 'Button 5',
-                'Button 6', 'Button 7', 'Button 8', 'Button 9', 'Button 10'
-            ];
-
-            const buttonContainer = $('#buttonContainer');
-            defaultButtons.forEach(function (buttonText) {
-                const button = $('<button>').text(buttonText);
-                buttonContainer.append(button);
-            });
-
             // location.json에서 데이터 불러와서 버튼 동적 생성
             $.getJSON('/getLocations', function (data) {
+                const buttonContainer = $('#buttonContainer');
+                
+                // 기본 버튼 생성
+                const defaultButtons = [
+                    
+                ];
+
+                defaultButtons.forEach(function (buttonText) {
+                    const button = $('<button>').text(buttonText);
+                    buttonContainer.append(button);
+                });
+
+                // JSON 데이터에서 버튼 생성
                 const locationButtons = data.locations.map(function (location) {
                     return $('<button>').text(location).on('click', function () {
                         window.location.href = '/location/' + location.toLowerCase();
