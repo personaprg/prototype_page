@@ -1,0 +1,17 @@
+/* styles.css */
+
+#buttonContainer {
+    position: relative;
+    width: 600px; /* 적절한 가로 크기 조정 */
+    height: 400px; /* 적절한 세로 크기 조정 */
+    border: 1px solid #ccc;
+}
+
+.locationButton {
+    position: absolute;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
